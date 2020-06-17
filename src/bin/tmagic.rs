@@ -31,10 +31,22 @@ use walkdir::WalkDir;
 
 use tree_magic_mini as tree_magic;
 
+pub mod built_info {
+    // The file has been placed there by the build script.
+    include!(concat!(env!("OUT_DIR"), "/built.rs"));
+}
+
 fn main() {
     use clap::{App, Arg};
 
-    let args = App::new("TreeMagic")
+    let args = App::new("tmagic")
+        .version(
+            built_info::DEPENDENCIES
+                .iter()
+                .find(|(d, _)| d == &"tree_magic_mini")
+                .unwrap()
+                .1,
+        )
         .about("Determines the MIME type of a file by traversing a filetype tree.")
         .arg(
             Arg::with_name("file")

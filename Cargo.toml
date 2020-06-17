@@ -13,3 +13,6 @@ walkdir = "2.3.1"
 tree_magic_mini = "1.0.0"
 clap = "2.33.1"
 num_cpus = "1.13.0"
+
+[build-dependencies]
+built = "0.4"
