@@ -36,6 +36,9 @@ pub mod built_info {
     include!(concat!(env!("OUT_DIR"), "/built.rs"));
 }
 
+
+// original code by https://github.com/aahancoc/tree_magic
+
 fn main() {
     use clap::{App, Arg};
 
